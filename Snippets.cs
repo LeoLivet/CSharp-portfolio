@@ -341,3 +341,38 @@ switch (product[2])
 Console.WriteLine($"Product: {size} {color} {type}");
 
 #endregion
+
+
+#region Console readline project. Pick an int between 5-10
+
+string? thenumberAsAString;
+int theNumber = 0;
+bool validNumber = false;
+
+
+Console.WriteLine("pick a number between '5' or '10' Do not write it using letters.");
+
+do
+{
+    thenumberAsAString = Console.ReadLine();
+
+    if (int.TryParse(thenumberAsAString, out theNumber))
+    {
+
+        if (theNumber >=5 && theNumber <= 10)
+        {
+            Console.WriteLine($"Yes you have picked number: {theNumber} it is between 5 and 10 good job reading!");
+            validNumber = true;
+
+        }
+        else
+            Console.WriteLine(theNumber > 10 ? "Too High!" : "Too low!");
+            
+    }
+    else
+    Console.WriteLine(thenumberAsAString == "" ? "you must input a number!" : "not a number! You must not use letters to type your numbers!"); 
+
+
+}while(validNumber == false);
+
+#endregion
