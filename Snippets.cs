@@ -922,10 +922,89 @@ do
 
 		case "3":
 			// Ensure animal ages and physical descriptions are complete
-			Console.WriteLine("Challenge Project - please check back soon to see progress.");
+			
+				
+				int currentPets = 0;
+			for (int i = 0; i < maxPets; i++)
+			{
+				if (ourAnimals[i, 0] != "ID #: ")
+				{
+					currentPets += 1;
+				}
+
+			}
+			Console.WriteLine("There is currently: "+ currentPets + " pets at the moment");
+			Console.WriteLine("Checking if all animals have valid descriptions...");
+
+
+
+
+
+
+			for (int i = 0; i < currentPets; i++)
+			{
+				bool validEntry = false;
+				bool validNumeric = false;
+				do
+				{
+
+					//Checks if animal has a valid numeric Age
+					if (ourAnimals[i, 2].Contains("?"))
+					{
+						int petAge;
+
+
+
+						Console.WriteLine($"Enter an age for {ourAnimals[i, 0]}");
+						readResult = Console.ReadLine();
+
+						if (readResult != null)
+						{
+							if (int.TryParse(readResult, out petAge))
+							{
+								ourAnimals[i, 2] = "Age: " + readResult;
+								validNumeric = true;
+							}
+							else
+							{
+								validNumeric = false;
+							}
+						}
+					}
+					else
+					
+					{
+						validNumeric = true;
+					}
+				} while (validNumeric == false);
+
+				//Checks if Animal has valid Physical description
+				do
+				{
+					if (ourAnimals[i, 4] == "Physical description: ")
+					{
+						Console.WriteLine($"Enter a valid physical description for {ourAnimals[i, 0]} (size, Color, breed, gender, weight, housebroken)");
+						readResult = Console.ReadLine();
+						if (readResult != null)
+
+						{
+							ourAnimals[i, 4] = "Physical description: " + readResult;
+							Console.WriteLine(ourAnimals[i, 4]);
+						}
+					}
+					else
+					{
+						validEntry = true;
+					}
+				} while (validEntry == false);
+			}
+
+
+			Console.WriteLine("All Animals Have Valid Information.");
 			Console.WriteLine("Press the Enter key to continue.");
 			readResult = Console.ReadLine();
 			break;
+
 
 		case "4":
 			// Ensure animal nicknames and personality descriptions are complete
