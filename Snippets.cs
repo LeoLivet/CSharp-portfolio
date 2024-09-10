@@ -1007,11 +1007,72 @@ do
 
 
 		case "4":
+		
 			// Ensure animal nicknames and personality descriptions are complete
-			Console.WriteLine("Challenge Project - please check back soon to see progress.");
-			Console.WriteLine("Press the Enter key to continue.");
-			readResult = Console.ReadLine();
+
+			Console.WriteLine("Checking if all Animals have valid nickname and personality descriptions...");
+
+			for (int i = 0; i < petCount; i++)
+			{
+				bool validEntry = false;
+
+				do//Check if animal has valid Nickname
+				{
+
+					if (ourAnimals[i, 3] == "Nickname: ")
+					{
+						Console.WriteLine($"Enter a nickname for {ourAnimals[i, 0]}");
+						readResult = Console.ReadLine();
+
+						if (readResult != null)
+
+						{
+							ourAnimals[i, 3] = "Nickname: " + readResult;
+
+						}
+
+					}
+					else
+					{
+						validEntry = true;
+					}
+
+
+				} while (validEntry == false);
+
+
+				do //Check if animal has valid personality description
+				{
+					validEntry = false;
+
+					if (ourAnimals[i, 5] == "Personality: ")
+					{
+						Console.WriteLine($"Enter a Personality description for: {ourAnimals[i, 0]})");
+						readResult = Console.ReadLine();
+
+						if (readResult != null)
+						{
+							ourAnimals[i, 5] = "Personality: " + readResult;
+
+						}
+
+
+
+					}
+					else
+					{
+						validEntry = true;
+					}
+				} while (validEntry == false);
+			}
+
+
+
+			Console.WriteLine("Nickname and personality description fields are complete for all of our friends. ");
+			Console.WriteLine("Press the enter key to continue");
+			Console.ReadLine();
 			break;
+
 
 		case "5":
 			//Edit an animals age
