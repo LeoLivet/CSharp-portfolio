@@ -1254,7 +1254,7 @@ Console.WriteLine($"Divide value1 by value2, display the result as an int: {resu
 
 
 decimal result2 = result11;
-Console.WriteLine($"Divide value1 by value2, display the result as a decimal: {result2}");
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
 
 
 
